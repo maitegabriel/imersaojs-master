@@ -1,0 +1,34 @@
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
+    <h1 class="h2">Atendimentos</h1>
+    <div class="btn-toolbar mb-2 mb-md-0">
+        <a ui-sref="atendimentoNovo" class="btn btn-sm btn-outline-success">
+            <span class="fas fa-plus-square"></span>
+            Novo Atendimento
+        </a>
+    </div>
+</div>
+<div class="table-responsive">
+    <table class="table table-striped table-sm">
+        <thead>
+            <tr>
+                <th>Emissão</th>
+                <th>Cliente</th>
+                <th>Pet</th>
+                <th class="text-center">Total</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="atendimento in vm.atendimentos">
+                <td>{{atendimento.emissao | date: 'dd/MM/yyyy HH:mm'}}</td>
+                <td>{{atendimento.cliente.nome}}</td>
+                <td>{{atendimento.pet.nome}}</td>
+                <td class="text-right">{{atendimento.total | number:2}}</td>
+                <td class="text-right">
+                    <a ui-sref="atendimentoEditar({id:atendimento._id})"><span class="fas fa-edit"></span></a>
+                    <a href="#" ng-click="vm.excluir(atendimento._id)"><span class="fas fa-trash-alt"></span></a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

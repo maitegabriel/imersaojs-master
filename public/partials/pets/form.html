@@ -1,0 +1,39 @@
+<div class="col-md mx-auto mt-4">
+    <h2>Pet</h2>
+    <small class="form-text text-muted">Aqui, você registra o pet do seu cliente</small>
+    <form>
+        <div class="form-row">
+            <div class="form-group col-md-2">
+                <label>Documento:</label>
+                <input ng-model="vm.pet.documento" type="text" class="form-control">
+            </div>
+            <div class="form-group col-md-10">
+                <label>Nome do Pet:</label>
+                <input ng-model="vm.pet.nome" type="text" class="form-control">
+            </div>
+        </div>
+        <div class="form-group col-md-6">
+            <label>Raça:</label>
+            <input ng-model="vm.pet.raca" type="text" class="form-control">
+        </div>
+        <div class="form-group col-md-4">
+            <label>Idade:</label>
+            <input ng-model="vm.pet.idade" type="text" class="form-control">
+        </div>
+        <div class="form-group col-md-4">
+            <label>Sexo:</label>
+            <select class="form-control">
+                <option>Macho</option>
+                <option>Fêmea</option>
+            </select>
+        </div>
+        <div class="form-group col-md-4">
+            <label>Peso:</label>
+            <input ng-model="vm.pet.peso" type="text" class="form-control">
+        </div>
+        <div class="text-right">
+            <button ng-click="vm.save()" type="button" class="btn btn-primary">Salvar</button>
+            <button ui-sref="petList" type="button" class="btn btn-danger">Cancelar</button>
+        </div>
+    </form>
+</div>

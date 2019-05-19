@@ -1,0 +1,110 @@
+<!doctype html>
+<html ng-app="app" lang="pt">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>ShopPet</title>
+    
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <!-- FontAwesome CSS -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <!-- Custom styles for this template -->
+    <link href="home.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+      <a class="navbar-brand col-sm-3 col-md-2 mr-0 fas fa-dog" href="#">  ShopPet  </a>
+     
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+          <div class="sidebar-sticky">
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <span class="fas fa-home"></span>
+                  Home <span class="sr-only">(current)</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" ui-sref-active="active" ui-sref="clienteList">
+                  <span class="fas fa-users"></span>
+                  Clientes
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" ui-sref-active="active" ui-sref="petList">
+                  <span class="fas fa-paw"></span>
+                  Pets
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" ui-sref-active="active" ui-sref="atendimentoList">
+                  <span class="fas fa-syringe"></span>
+                  Atendimentos
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" ui-sref-active="active" ui-sref="solicitacaoList">
+                  <span class="fas fa-file"></span>
+                  Solicitações
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" ui-sref-active="active" ui-sref="produtoList">
+                  <span class="fas fa-bone"></span>
+                  Produtos
+                </a>
+              </li>
+
+            </ul>
+          </div>
+        </nav>
+
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+          <ui-view></ui-view>
+        </main>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
+    <script src="https://unpkg.com/@uirouter/angularjs/release/angular-ui-router.min.js"></script>
+
+    <!-- Meus códigos -->
+    <script src="main.js"></script>
+    <script src="controllers/clientes/list.controller.js"></script>
+    <script src="controllers/clientes/form.controller.js"></script>
+    <script src="services/cliente.service.js"></script>
+
+    <script src="controllers/pets/list.controller.js"></script>
+    <script src="controllers/pets/form.controller.js"></script>
+    <script src="services/pet.service.js"></script>
+
+    <script src="controllers/produtos/list.controller.js"></script>
+    <script src="controllers/produtos/form.controller.js"></script>
+    <script src="services/produto.service.js"></script>
+    
+    <script src="controllers/solicitacoes/list.controller.js"></script>
+    <script src="controllers/solicitacoes/form.controller.js"></script>
+    <script src="services/solicitacao.service.js"></script>
+
+    <script src="controllers/atendimentos/list.controller.js"></script>
+    <script src="controllers/atendimentos/form.controller.js"></script>
+    <script src="services/atendimento.service.js"></script>
+  </body>
+</html>

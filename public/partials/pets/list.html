@@ -1,0 +1,31 @@
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
+    <h1 class="h2">Pets</h1>
+    <div class="btn-toolbar mb-2 mb-md-0">
+        <a ui-sref="petNovo" class="btn btn-sm btn-outline-success">
+            <span class="fas fa-plus-square"></span>
+            Novo pet
+        </a>
+    </div>
+</div>
+<div class="table-responsive">
+    <table class="table table-striped table-sm">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Telefone</th>
+                <th>E-mail</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="pet in vm.pets">
+                <td>{{pet.nome}}</td>
+                <td>{{pet.telefone}}</td>
+                <td>{{pet.email}}</td>
+                <td class="text-right">
+                    <a ui-sref="petEditar({id:pet._id})"><span class="fas fa-edit"></span></a>
+                    <a href="#" ng-click="vm.excluir(pet._id)"><span class="fas fa-trash-alt"></span></a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,32 @@
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
+    <h1 class="h2">Solicitações</h1>
+    <div class="btn-toolbar mb-2 mb-md-0">
+        <a ui-sref="solicitacaoNovo" class="btn btn-sm btn-outline-success">
+            <span class="fas fa-plus-square"></span>
+            Nova solicitação
+        </a>
+    </div>
+</div>
+<div class="table-responsive">
+    <table class="table table-striped table-sm">
+        <thead>
+            <tr>
+                <th>Emissão</th>
+                <th>Cliente</th>
+                <th class="text-center">Total</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="solicitacao in vm.solicitacoes">
+                <td>{{solicitacao.emissao | date: 'dd/MM/yyyy HH:mm'}}</td>
+                <td>{{solicitacao.cliente.nome}}</td>
+                <td class="text-right">{{solicitacao.total | number:2}}</td>
+                <td class="text-right">
+                    <a ui-sref="solicitacaoEditar({id:solicitacao._id})"><span class="fas fa-edit"></span></a>
+                    <a href="#" ng-click="vm.excluir(solicitacao._id)"><span class="fas fa-trash-alt"></span></a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

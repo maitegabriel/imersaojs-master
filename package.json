@@ -1,0 +1,22 @@
+{
+  "name": "ShopPet",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Maite Gabriel <maitegabriell@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "consign": "^0.1.6",
+    "express": "^4.16.4",
+    "mongoose": "^5.5.4"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.11"
+  }
+}

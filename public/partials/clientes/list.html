@@ -1,0 +1,33 @@
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
+    <h1 class="h2">Clientes</h1>
+    <div class="btn-toolbar mb-2 mb-md-0">
+        <a ui-sref="clienteNovo" class="btn btn-sm btn-outline-success">
+            <span class="fas fa-plus-square"></span>
+            Novo cliente
+        </a>
+    </div>
+</div>
+<div class="table-responsive">
+    <table class="table table-striped table-sm">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Telefone</th>
+                <th>E-mail</th>
+                <th>Pet</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="cliente in vm.clientes">
+                <td>{{cliente.nome}}</td>
+                <td>{{cliente.telefone}}</td>
+                <td>{{cliente.email}}</td>
+                <td>{{cliente.pet.nome}}</td>
+                <td class="text-right">
+                    <a ui-sref="clienteEditar({id:cliente._id})"><span class="fas fa-edit"></span></a>
+                    <a href="#" ng-click="vm.excluir(cliente._id)"><span class="fas fa-trash-alt"></span></a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

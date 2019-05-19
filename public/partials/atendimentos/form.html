@@ -1,0 +1,105 @@
+<div class=" mx-auto">
+    <h2>Atendimento</h2>
+    <small class="form-text text-muted">Aqui, você registra os atendimentos realizados nos pets, assim como os produtos utilizados neste atendimento</small>
+    <form>
+        <div class="form-row">
+            <div class="form-group col-md-2">
+                <label>Data/Hora :</label>
+                <input ng-model="vm.atendimento.emissao" readonly type="datetime-local" class="form-control text-right">
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Cliente:</label>
+            <select 
+                class="form-control "
+                ng-model="vm.atendimento.cliente"
+                ng-options="item as item.nome for item in vm.clientes track by item._id">
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Pet:</label>
+            <select 
+                class="form-control"
+                ng-model="vm.atendimento.pet"
+                ng-options="item as item.nome for item in vm.pets track by item._id">
+            </select>
+        </div>
+        <div class="form-group w-auto float-none"  style="background-color: #eee;">
+            <label>Registro do atendimento:</label>
+            <input ng-model="vm.atendimento.registro" type="text" class="form-control">
+   
+        </div>
+        <div class="form-row">
+            <button ng-click="vm.addItem()" type="button" data-toggle="modal" data-target="#modalItem" class="btn btn-info btn-sm my-2">
+                <span class="fas fa-plus-square"></span>
+                Adicionar item
+            </button>
+            <table class="table table-striped">
+                <tr>
+                    <th>Produto</th>
+                    <th class="text-center">Preço</th>
+                    <th class="text-center">Quantidade</th>
+                    <th class="text-center">Total</th>
+                    <th></th>
+                </tr>
+                <tr ng-repeat="(index, item) in vm.atendimento.itens">
+                    <td>{{item.produto.codigo}} - {{item.produto.descricao}}</td>
+                    <td class="text-right">{{item.preco|number:2}}</td>
+                    <td class="text-right">{{item.quantidade|number:2}}</td>
+                    <td class="text-right">{{item.total|number:2}}</td>
+                    <td class="text-right">
+                        <a href="#" ng-click="vm.editarItem(index)"><span class="fas fa-edit"></span></a>
+                        <a href="#" ng-click="vm.excluirItem(index)"><span class="fas fa-trash-alt"></span></a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="text-right">
+            <button ng-click="vm.save()" type="button" class="btn btn-primary">Salvar</button>
+            <button ui-sref="atendimentoList" type="button" class="btn btn-danger">Cancelar</button>
+        </div>
+    </form>
+    <!-- Modal -->
+    <div class="modal fade" id="modalItem" tabindex="-1" role="dialog" aria-labelledby="modalItemLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalItemLabel">Produtos utilizados neste atendimento</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label>Produto:</label>
+                            <select class="form-control" ng-model="vm.itemSelecionado.produto"
+                                ng-options="item as item.descricao for item in vm.produtos track by item._id">
+                            </select>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-4">
+                                <label>Quantidade:</label>
+                                <input ng-model="vm.itemSelecionado.quantidade" type="number" class="form-control">
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label>Preço:</label>
+                                <input ng-model="vm.itemSelecionado.preco" type="number" class="form-control">
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label>Total:</label>
+                                <input ng-model="vm.itemSelecionado.total" type="number" class="form-control">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" data-dismiss="modal" ng-click="vm.saveItem()"
+                        class="btn btn-primary">Salvar</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

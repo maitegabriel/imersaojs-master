@@ -1,0 +1,38 @@
+<div class="col-md mx-auto mt-4">
+    <h2>Cadastro de Cliente</h2>
+    <small class="form-text text-muted">Aqui, você registra os dados do seu cliente</small>
+    <form>
+        <div class="form-row">
+            <div class="form-group col-md-2">
+                <label>Documento:</label>
+                <input ng-model="vm.cliente.documento" type="text" class="form-control">
+            </div>
+            <div class="form-group col-md-10">
+                <label>Nome:</label>
+                <input ng-model="vm.cliente.nome" type="text" class="form-control">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label>E-mail:</label>
+                <input ng-model="vm.cliente.email" type="email" class="form-control">
+            </div>
+            <div class="form-group col-md-6">
+                <label>Telefone:</label>
+                <input ng-model="vm.cliente.telefone" type="text" class="form-control">
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Pet:</label>
+            <select 
+                class="form-control"
+                ng-model="vm.cliente.pet"
+                ng-options="item as item.nome for item in vm.pets track by item._id">
+            </select>
+        </div>
+        <div class="text-right">
+            <button ng-click="vm.save()" type="button" class="btn btn-primary">Salvar</button>
+            <button ui-sref="clienteList" type="button" class="btn btn-danger">Cancelar</button>
+        </div>
+    </form>
+</div>
